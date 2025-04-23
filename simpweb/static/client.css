@@ -1,0 +1,161 @@
+body {
+    margin-top: 100px;
+    background-color: #629bf7;
+}
+
+.welcome-layout {
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.welcome-layout-left {
+    float: left;
+    width: 340px;
+    border: 2px solid black;
+}
+
+.welcome-layout-right {
+    margin-left: 350px;
+    width: 250px;
+}
+
+.welcome-layout-right-form1 {
+    height: 70px;
+    background-color: #FFFFFF;
+    border: 2px solid black;
+}
+
+.welcome-layout-right-form2 {
+    margin-top: 10px;
+    height: 300px;
+    background-color: #FFFFFF;
+    border: 2px solid black;
+}
+
+/*##########################################*/
+
+.profile-layout {
+    background-color: #e6ecf0;
+    display: grid;
+    grid-template-columns: 100px 430px 270px;
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 800px;
+}
+
+.profile-menu {
+    border-right: 1px solid black;
+    width: 100px;
+}
+
+.profile-menu-item {
+    align-items: center;
+    display: flex;
+    padding: 10px;
+}
+
+.profile-menu-item:hover {
+    background: rgba(29, 161, 242, 0.1);
+    color: #1da0f2;
+    border-radius: 20px;
+}
+
+.profile-menu-item--active {
+    color: #1da0f2;
+}
+
+.tab-button {
+    width: 100%;
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.profile-center-twidder {
+    margin-left: 15px;
+    height: 100%;
+    border-right: 1px solid black;
+    overflow: scroll;
+    flex-direction: column;
+}
+
+.twidd {
+    border-bottom: 1px solid #050505;
+    margin-bottom: 2px;
+    padding: 10px 15px;
+}
+.twidd:hover {
+    background: rgba(0,0,0,0.03);
+    cursor: pointer;
+}
+
+.twidd-header {
+    display: flex;
+}
+
+.twidd-author-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #14171a;
+    margin-right: 5px;
+}
+
+.twidd-author-slug {
+    color: #5b7083;
+    font-size: 15px;
+}
+
+.twidd-publish-time {
+    margin-left: 5px;
+    color: #5b7083;
+}
+
+.profile-right-side {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.profile-user-details {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/*##########################################*/
+
+
+select {
+    width: 158px;
+}
+
+input {
+    width: 150px;
+}
+
+.input-box {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 2px;
+}
+
+h3 {
+    text-align: center;
+}
+
+button {
+    float: right;
+    border: 1px solid black;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.form_button{
+    float: right;
+    border: 1px solid black;
+    width: 50px;
+}

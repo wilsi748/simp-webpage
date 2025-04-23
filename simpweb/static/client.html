@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab1</title>
+        <link href="static/client.css" text="text/css" rel="stylesheet">
+        <script src="static/client.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+        
+        <script id="welcome-view" type="text/html">
+            <div class="welcome-layout">
+                <div class="welcome-layout-left">
+                    <img src="static/wimage.png"/>
+                </div>
+                <div class="welcome-layout-right">
+                    <div class="welcome-layout-right-form1">
+                        <form id="login-form" onsubmit="login(); return false">
+                            <div class="input-box">
+                                <div>Email</div>
+                                <input type="email" name="email" required>
+                            </div>
+                            <div class="input-box">
+                                <div>Password</div>
+                                <input type="password" name="password" required>
+                            </div>
+                            <button type="submit">login</button>
+                        </form>
+                        <div id="error-message-login"></div>
+                    </div>
+
+                    <div class="welcome-layout-right-form2">
+                        <div class="welcome-layout-right-form2-title">
+                            <h3>Sign up here</h3>
+                        </div>
+    
+                        <form id="signup-form" onsubmit="signup(); return false">
+                            <div class="input-box">
+                                <div>First name</div>
+                                <input type="text" name="firstname" required>
+                            </div>
+                            <div class="input-box">
+                                <div>Family name</div>
+                                <input type="text" name="familyname" required>
+                            </div>
+                            <div class="input-box">
+                                <div>Gender</div>
+                                <select id="gender" name="gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <div>City</div>
+                                <input type="text" name="city" required>
+                            </div>
+                            <div class="input-box">
+                                <div>County</div>
+                                <input type="text" name="country" required>
+                            </div>
+                            <div class="input-box">
+                                <div>Email</div>
+                                <input type="email" name="email" required>
+                            </div>
+                            <div class="input-box">
+                                <div>Password</div>
+                                <input type="password" name="password" required>
+                            </div>
+                            <div class="input-box">
+                                <div>Repeat PSW</div>
+                                <input type="password" name="repeat-password" required>
+                            </div>
+                            <button type="submit">SignUp</button> 
+                        </form>
+                        <div id="error-message-signup"></div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script id="profile-view" type="text/html">
+            <div class="profile-layout"> 
+                <div class="profile-menu">
+                    <div class="profile-menu-item">
+                        <button class="tab-button" id="home-tab" onclick="changeTab('home')">Home</button>
+                    </div>
+                    <div class="profile-menu-item">
+                        <button class="tab-button" id="browse-tab" onclick="changeTab('browse')">Browse</button>
+                    </div>
+                    <div class="profile-menu-item">
+                        <button class="tab-button" id="account-tab" onclick="changeTab('account')">Account</button>
+                    </div>
+                </div>
+                
+                <div class="profile-content" id="home">
+                    <div class="profile-center-twidder">
+                        <div class="profile-send-message">
+                            <form id="home-message" method="post" onsubmit="sendMessageHome(); return false">
+                                <div class="input-box">
+                                    <div>Enter message</div>
+                                    <input type="text" name="message"/>
+                                    <button type=submit>Send message</button>
+                                </div>
+                            </form>
+                        </div>
+                        <button id="update-button" onclick="updateMessagesHome()">Update</button>
+                        <div id="twidds-home"></div>
+                    </div>
+                </div>
+    
+                <div class="profile-content" id="browse">
+                    <div class="profile-center-twidder">
+                        <div class="profile-visit-user">
+                            <form id="browse-from-visit-user" onsubmit="getUserInfo(); return false">
+                                <div class="input-box">
+                                    <div>Enter email:</div>
+                                    <input type="email" name="email" required/>
+                                    <button type=submit>Visit user</button>
+                                </div>
+                            </form>
+                            <div class="profile-send-message">
+                                <form id="browse-message" method="post" onsubmit="sendMessageBrowse(); return false">
+                                    <div class="input-box">
+                                        <div>Enter message:</div>
+                                        <input type="text" name="message" required/>
+                                        <button type=submit>Send message</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="error-message"></div>
+                        </div>
+                        <button id="update-button" onclick="updateMessagesBrowse()">Update</button>
+                        <div id="twidds-browse"></div>
+                    </div>
+                </div>
+    
+    
+    
+                <div class="profile-content" id="account">
+                    <div class="profile-center-twidder">
+                        <div class="changePassword">
+                            <form id="change-password-form" method="post" onsubmit="changePassword(); return false">
+                                <div class="input-box">
+                                    <div>Old password</div>
+                                    <input type="password" name="old-password" required />
+                                </div>
+                                <div class="input-box">
+                                    <div>New password</div>
+                                    <input type="password" name="new-password" required />
+                                </div>
+                                <div class="input-box">
+                                    <div>Repeat new password</div>
+                                    <input type="password" name="repeat-new-password" required />
+                                </div>
+                                <button id="change-password-button" type="submit">Change Password</button>
+                            </form>
+                            <button id="logout-button" onclick="logout()">Logout</button>
+                        </div>
+                        <div id="error-message-account"></div>
+                    </div>
+                </div>
+    
+                <div class="profile-right-side" id="profile-right-side">
+                    <div class="profile-right-side" id="profile-right-side">
+                        <div id="userName">Name: </div>
+                        <div id="userGender">Gender: </div>
+                        <div id="userCity">City: </div>
+                        <div id="userCountry">Country: </div>
+                        <div id="userEmail">Email: </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+    </head>
+    <body>
+        <div id="current-view"></div>
+    </body>
+</html>
